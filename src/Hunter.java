@@ -11,7 +11,7 @@ public class Hunter
     //instance variables
     private String hunterName;
     private String kit;
-    private String gemBag;
+    private String treasureCollection;
     private int gold;
 
     //Constructor
@@ -24,7 +24,7 @@ public class Hunter
     {
         this.hunterName = hunterName;
         kit = "";
-        gemBag = "";
+        treasureCollection = "";
         gold = startingGold;
     }
 
@@ -39,9 +39,9 @@ public class Hunter
         return kit;
     }
 
-    public String getGemBag()
+    public String getTreasureCollection()
     {
-        return gemBag;
+        return treasureCollection;
     }
 
     public int getGold()
@@ -174,10 +174,10 @@ public class Hunter
         return printableKit;
     }
 
-    public String getGems()
+    public String getTreasures()
     {
-        String printableBag = replaceDelimiter(gemBag);
-        return printableBag;
+        String printTreasures = replaceDelimiter(treasureCollection);
+        return printTreasures;
     }
 
     private String replaceDelimiter(String inv)
@@ -200,9 +200,9 @@ public class Hunter
     {
         String item = treasure.getType();
 
-        if (!hasItem(item, gemBag))
+        if (!hasItem(item, treasureCollection))
         {
-            gemBag += item + DELIMITER;
+            treasureCollection += item + DELIMITER;
             return true;
         }
 
@@ -219,10 +219,10 @@ public class Hunter
         {
             str += " and " + getInventory();
         }
-        str += "\nGems Collected: ";
-        if (!gemBag.equals(""))
+        str += "\nTreasure Collected: ";
+        if (!treasureCollection.equals(""))
         {
-            str += getGemBag();
+            str += getTreasureCollection();
         }
         else
         {

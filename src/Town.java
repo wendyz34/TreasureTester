@@ -125,8 +125,13 @@ public class Town
             if (Math.random() > noTroubleChance)
             {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
-                printMessage += "\nYou won the brawl and receive " +  goldDiff + " gold.";
-                hunter.changeGold(goldDiff);
+                if (hunter.getGold()>=11){
+                    printMessage += "\nYou won the brawl and receive " +  (goldDiff+3) + " gold.";
+                    hunter.changeGold(goldDiff);
+                }else {
+                    printMessage += "\nYou won the brawl and receive " + goldDiff + " gold.";
+                    hunter.changeGold(goldDiff);
+                }
             }
             else
             {
@@ -145,7 +150,7 @@ public class Town
         }
     }
 
-    public void huntForGems()
+    public void huntForTreasure()
     {
         String foundGem = treasure.getType();
 
@@ -161,7 +166,7 @@ public class Town
             {
                 printMessage += "\nThat's one for the collection! You put it in your gem bag.";
 
-                if (Treasure.getAllTreasure(hunter.getGemBag()))
+                if (Treasure.getAllTreasure(hunter.getTreasureCollection()))
                 {
                     winCond = 1;
                 }

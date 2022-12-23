@@ -4,6 +4,7 @@
  * This code has been adapted from Ivan Turner's original program -- thank you Mr. Turner!
  */
 import java.util.Scanner;
+//fix shop selling part
 
 public class Shop
 {
@@ -40,6 +41,7 @@ public class Shop
             System.out.println("Currently we have the following items:");
             System.out.println(inventory());
             System.out.print("What're you lookin' to buy? ");
+            System.out.println("Type the letter in () to get the cost");
             String item = scanner.nextLine();
             int cost = checkMarketPrice(item, true);
             if (cost == 0)
@@ -86,11 +88,11 @@ public class Shop
      */
     public String inventory()
     {
-        String str = "Water: " + WATER_COST + " gold\n";
-        str += "Rope: " + ROPE_COST + " gold\n";
-        str += "Machete: " + MACHETE_COST + " gold\n";
-        str += "Horse: " + HORSE_COST + " gold\n";
-        str += "Boat: " + BOAT_COST + " gold\n";
+        String str = "(W)ater: " + WATER_COST + " gold\n";
+        str += "(R)ope: " + ROPE_COST + " gold\n";
+        str += "(M)achete: " + MACHETE_COST + " gold\n";
+        str += "(H)orse: " + HORSE_COST + " gold\n";
+        str += "(B)oat: " + BOAT_COST + " gold\n";
 
         return str;
     }
@@ -155,23 +157,23 @@ public class Shop
      */
     public int getCostOfItem(String item)
     {
-        if (item.equals("Water") || item.equals("water"))
+        if (item.equals("W")||item.equals("w"))
         {
             return WATER_COST;
         }
-        else if (item.equals("Rope") || item.equals("rope"))
+        else if (item.equals("R")||item.equals("r"))
         {
             return ROPE_COST;
         }
-        else if (item.equals("Machete") || item.equals("machete"))
+        else if (item.equals("M")||item.equals("m"))
         {
             return MACHETE_COST;
         }
-        else if (item.equals("Horse") || item.equals("horse"))
+        else if (item.equals("H")||item.equals("h"))
         {
             return HORSE_COST;
         }
-        else if (item.equals("Boat") || item.equals("boat"))
+        else if (item.equals("B")||item.equals("b"))
         {
             return BOAT_COST;
         }
